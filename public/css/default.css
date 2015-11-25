@@ -1,0 +1,322 @@
+﻿
+/*********** Slider Button **********/
+
+.sliderButton {
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+    
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    
+    touch-action: none;
+    
+    opacity: 0;
+    transform: translate(0px,30px);
+    transition: opacity ease-out 100ms, transform ease-out 100ms;
+}
+
+.sliderButton.pop {
+    opacity: 1;
+    transform: translate(0px,0px);
+}
+
+.roundButton {
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+    background-color: #0077c6;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px 30px;
+    opacity: 0.99;
+    transition: transform ease-in-out 200ms, color ease 100ms;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+    font-size: 16pt;
+    color: white;
+}
+
+.roundDest {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px 30px;
+    opacity: 0.7;
+    border: 2px solid #70ad47;
+    -ms-grid-column-align: center;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+    transition: transform ease-in-out 100ms 0ms;
+    color: #70ad47;
+    font-size: 20pt;
+    background-color: white;
+}
+
+    .roundDest.top {
+        -ms-grid-row-align: start;
+        transform: translateY(70px);
+    }
+
+    .roundDest.bottom {
+        transform: translateY(-70px);
+        -ms-grid-row-align: end;
+    }
+
+.buttonLabel {
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+    font-family: 'Segoe UI SemiBold';
+
+}
+
+.slideContainer {
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+    width: 70px;
+    height: 204px;
+    opacity: 0;
+    transition: opacity 0.2s ease 0s;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+}
+
+/********************************************
+    1 - Down feedback 
+    2 - Feedback the entire time (default.js ln50)
+**********************************************/
+
+.on .roundButton {
+    background-color: #6fa7cc;
+    transition-duration: 0ms;
+}
+
+/********************************************
+    3 - Feedback when you reach the theshold
+**********************************************/
+
+.roundButton.commit {
+    background-color: #70ad47;
+}
+
+/********************************************
+    4 - Is it learnable
+    5 - Delay timer 400ms on all
+********************************************/
+
+.on .slideContainer {
+    opacity: 1;
+    transition: opacity 0.2s ease 400ms;
+}
+
+.on .roundDest.top {
+    transform: translateY(0px);
+    transition: transform ease-in-out 200ms 400ms;
+}
+
+.on .roundDest.bottom {
+    transform: translateY(0px);
+    transition: transform ease-in-out 200ms 400ms;
+}
+
+
+/*********** Viewport **************/
+
+body {
+    background-color: #3D3D3D;
+}
+
+.viewport {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-scroll-snap-type: mandatory;
+    -ms-scroll-snap-points-x: snapList(0%, 300px, calc(300px + 300px));
+    -ms-overflow-style: none;
+    opacity: 0;
+    transition: opacity ease 350ms;
+}
+
+.surface {
+    width: calc(300px + 100% + 300px);
+    height: 100%;
+    display: -ms-grid;
+    -ms-grid-columns: 300px 1fr 300px;
+    -ms-grid-rows: 1fr;
+}
+
+.menu-left {
+    -ms-grid-column: 1;
+}
+
+.content {
+    -ms-grid-column: 2;
+    background-color: #f7f8f3;
+}
+
+.menu-right {
+    -ms-grid-column: 3;
+}
+
+.content .header {
+    background-color: #B53D3B;
+    -ms-grid-row: 1;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+    height: 80px;
+}
+
+    .content .header .hamburger {
+        -ms-grid-row-align: end;
+        width: 70px;
+        height: 100%;
+        opacity: 0.5;
+        background-image: url(/images/ham.svg);
+        background-position: center center;
+        background-size: 40%;
+        background-repeat: no-repeat;
+    }
+
+        .content .header .hamburger:hover {
+            background-color: #375569;
+        }
+
+    .content .header h1 {
+        -ms-grid-column-align: center;
+        -ms-grid-row-align: center;
+        font-family: 'Segoe UI Light', 'Segoe WP SemiBold';
+        font-weight: 100;
+        font-size: 26pt;
+        opacity: 0.5;
+    }
+
+.content .text {
+    -ms-grid-row: 2;
+    color: darkgrey;
+    font-size: 16pt;
+    background-color: #f7f8f3;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+    .content .text .loremText {
+        margin: 20px 20px 100px 20px;
+    }
+
+.menu-left {
+    -ms-grid-column: 1;
+    box-shadow: inset -5px 0 10px -2px rgba(0, 0, 0, 0.6);
+    background-color: #375569;
+}
+
+
+.menu-right {
+    -ms-grid-column: 3;
+    box-shadow: inset 5px 0 10px -2px rgba(0, 0, 0, 0.6);
+    background-color: #3D3D3D;
+}
+
+.menu {
+    font-family: 'Segoe UI Light', 'Segoe WP SemiLight';
+    display: flexbox;
+    flex-direction: column;
+}
+
+    .menu .search {
+        width: 60%;
+        margin: 40px 0px 0px 20px;
+    }
+
+    .menu .menuItem {
+        margin: 40px 0px 0px 20px;
+        display: -ms-grid;
+        -ms-grid-columns: 60px 1fr;
+        -ms-grid-rows: 1fr;
+        opacity: .7;
+        transition: transform ease 0.25s, color ease 0.25s;
+    }
+
+        .menu .menuItem.selected {
+            color: #FBCA41;
+        }
+
+        .menu .menuItem .icon {
+            -ms-grid-column: 1;
+            -ms-grid-column-align: center;
+            -ms-grid-row-align: center;
+            font-size: 22pt;
+        }
+
+        .menu .menuItem .label {
+            -ms-grid-column: 2;
+            font-size: 24pt;
+            font-weight: 100;
+        }
+
+
+#listView {
+    height: 100%;
+}
+
+    #listView .win-itembox {
+        background-color: rgba(0, 0, 0, 0.00);
+        opacity: 0.7;
+    }
+
+    #listView .win-surface {
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+
+    #listView .win-groupheader {
+        margin-left: 20px;
+        opacity: 0.5;
+        font-size: 24pt;
+        font-weight: 100;
+        color: #FBCA41;
+    }
+
+    #listView .win-groupleader {
+        margin-top: 0px;
+    }
+
+    #listView .win-container {
+        margin-left: 20px;
+    }
+
+.smallListIconTextItem {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    overflow: hidden;
+    margin-left: 10px;
+    background-color: none;
+}
+
+    .smallListIconTextItem .smallListIconTextItem-Detail {
+        margin: 5px;
+        font-family: 'Segoe UI Semibold';
+    }
+
+.touch-pullBox {
+    margin-left: 20px;
+    opacity: 0.6;
+}
+
+.phone .touch-pullLabel {
+    font-family: 'Segoe WP SemiLight';
+    font-weight: 100;
+}
+
+progress.touch-pullProgress {
+    color: white;
+}
+
+.touch-pullArrow {
+    background-image: url('/TouchControls/arrow-light.svg');
+}
+

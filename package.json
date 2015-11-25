@@ -1,0 +1,9 @@
+{
+  "name": "TouchTalk",
+  "version": "0.0.1",
+  "description": "Session about building touch",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}

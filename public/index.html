@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Touch</title>
+
+    <!-- WinJS references -->
+    <link href="/WinJS/css/ui-dark.css" rel="stylesheet" />
+    <script src="/WinJS/js/base.js"></script>
+    <script src="/WinJS/js/ui.js"></script>
+
+    <link href="touchcontrols\touchcontrols.css" rel="stylesheet" />
+    <script src="touchcontrols\touchcontrols.js"></script>
+
+    <!-- OffScreenMenu.Windows references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="smallListIconTextTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="smallListIconTextItem">
+            <div class="smallListIconTextItem-Detail">
+                <div data-win-bind="textContent: title"></div>
+            </div>
+        </div>
+    </div>
+    <div id="listLayoutTopHeaderTemplate" data-win-control="WinJS.Binding.Template">
+        <div class="listLayoutTopHeaderTemplateRoot">
+            <div data-win-bind="innerHTML: title"></div>
+        </div>
+    </div>
+    <div class="viewport">
+        <div class="surface">
+            <div class="content">
+                <div class="header"><div class="hamburger"></div><h1>Lorem ipsum</h1></div>
+                <div class="text">
+                    <div class="loremText">
+                        Dolor sit amet, consectetur adipiscing elit. Vivamus mattis nec mauris vitae iaculis. Maecenas vitae magna interdum, consectetur orci auctor, aliquam magna. Sed euismod, ipsum id elementum pretium, nunc orci egestas leo, at sagittis nisi sapien quis tellus. Nullam malesuada justo erat, eu porttitor quam vulputate vestibulum. Vestibulum porta ornare sagittis. Donec id dolor sed diam semper condimentum a at sapien. Nullam interdum lobortis quam sed vulputate. Etiam consectetur interdum eros sed aliquet. Aliquam erat volutpat. Ut id hendrerit leo. In gravida molestie lacus in adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ipsum sed enim luctus vestibulum.
+                        Sed non nisi ante. Proin dignissim sodales metus, sit amet pellentesque turpis egestas quis. Nunc sed facilisis diam. Nam sodales pretium imperdiet. Nam urna mi, aliquam nec diam nec, aliquam aliquam magna. Praesent sit amet sem lobortis, tincidunt felis vitae, pulvinar odio. Aliquam tristique odio in lobortis bibendum. Curabitur vel nibh sit amet quam egestas suscipit quis et metus. Duis at consequat metus. Sed vulputate tempus justo.
+                        Vivamus sodales, tortor id rutrum hendrerit, ligula nisi congue odio, non blandit ligula tellus eu elit. Curabitur ut gravida leo. Praesent placerat, leo ornare feugiat commodo, nisl mi pharetra massa, vel cursus mauris nisl et ipsum. Suspendisse sed justo dui. Pellentesque porttitor dolor et libero vestibulum, ac sodales turpis lacinia. Sed diam arcu, tincidunt ac metus dapibus, malesuada mattis justo. Nunc diam magna, rhoncus eu ornare a, ultrices ut turpis.
+                        Maecenas a lobortis velit. Sed sed quam rhoncus, vulputate lacus sit amet, accumsan sapien. Nulla facilisi. Maecenas sodales commodo mauris, a venenatis ante pulvinar nec. Donec malesuada mi sit amet diam rhoncus auctor. Sed rhoncus dignissim velit ut semper. Nulla facilisi. Duis varius, eros vel pulvinar mollis, enim lorem vestibulum mauris, vel dapibus risus risus eget sapien. Morbi at cursus erat. Nullam aliquam semper nisi, eget pulvinar elit vulputate at. Nunc rhoncus imperdiet nisl, vitae hendrerit dui luctus at. Phasellus sit amet luctus nisi. Sed ut nisi vel nibh pulvinar rutrum.
+                        Vivamus non tortor at mi pretium facilisis vel feugiat velit. Vestibulum sed felis mi. Praesent luctus molestie ante placerat commodo. Mauris magna velit, tincidunt sit amet nibh adipiscing, sollicitudin vestibulum diam. Donec at ligula erat. Phasellus nisi libero, aliquet vel odio et, hendrerit lobortis massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam nec arcu est. Cras tellus neque, sollicitudin vel aliquam in, malesuada non felis. Suspendisse eu tincidunt ligula. Mauris suscipit dolor sit amet dignissim sodales. Nulla aliquam dui eget lorem aliquet, sit amet dignissim urna aliquam.
+                    </div>
+                        <div class="sliderButton">
+                            <div class="slideContainer">
+                                <div class="top roundDest"><div class="buttonLabel">A</div></div>
+                                <div class="bottom roundDest"><div class="buttonLabel">a</div></div>
+                            </div>
+                        <div class="roundButton"><div class="buttonLabel">Aa</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-left menu">
+                <div class='search' data-win-control="WinJS.UI.AutoSuggestBox" data-win-options="{
+                    placeholderText: 'Search'
+                }"></div>
+                <div class="menuItem selected"><div class="icon">🚀</div><div class="label">Lorem ipsum</div></div>
+                <div class="menuItem"><div class="icon">🔧</div><div class="label">Dolor sit</div></div>
+                <div class="menuItem"><div class="icon">🚘</div><div class="label">Consectetur</div></div>
+                <div class="menuItem"><div class="icon">🔥</div><div class="label">Adipiscing</div></div>
+            </div>
+            <div class="menu-right menu" data-win-control="TouchControls.PullToRefresh">
+                <div id="listView"
+                     data-win-control="WinJS.UI.ListView"
+                     data-win-options="{
+                            itemDataSource: App.data.dataSource,
+                            itemTemplate: smallListIconTextTemplate,
+                            groupDataSource: App.data.groups.dataSource,
+                            groupHeaderTemplate: listLayoutTopHeaderTemplate,
+                            selectionMode: 'none',
+                            tapBehavior: 'none',
+                            swipeBehavior: 'none',
+                            layout: { type: WinJS.UI.ListLayout }
+                    }">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
